@@ -1,0 +1,87 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">Direct Service Angular Test</a>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4">
+      <div class="search">
+        <ul class="client-list">
+          <li class="search-form">
+            <div class="form-group">
+              <input type="text" class="form-control" name="keyword" [(ngModel)]="keyword">
+            </div>
+          </li>
+          <li class="client-info" *ngFor="let client of clients | clientPipe : keyword;let i = index" (click)="onSelectClient(client, i)">
+            <div class="avatar">
+              <img [src]="client.general.avatar">
+            </div>
+            <div class="meta">
+              <p class="name">{{client.general.firstName + ' ' + client.general.lastName}}</p>
+              <p class="job">{{client.job.title + ' from ' + client.job.company}}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <div class="profile" *ngIf="selectedClient.general">
+        <div class="row personal">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+            <div class="avatar">
+              <img [src]="selectedClient.general.avatar">
+            </div>
+          </div>
+          <div class="col">
+            <div class="meta">
+              <form class="profile-form">
+                <div class="form-group">
+                  <label for="firstname">First Name</label>
+                  <input type="name" class="form-control" id="firstname" placeholder="Enter first name" name="firstname" [(ngModel)]="selectedClient.general.firstName" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="lastname">Last Name</label>
+                  <input type="name" class="form-control" id="lastname" placeholder="Enter last name" name="lastname" [(ngModel)]="selectedClient.general.lastName" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" [(ngModel)]="selectedClient.contact.email" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input type="phone" class="form-control" id="phone" placeholder="Enter phone number" name="phone" [(ngModel)]="selectedClient.contact.phone" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="company">Company</label>
+                  <input type="text" class="form-control" id="company" placeholder="Enter company" name="company" [(ngModel)]="selectedClient.job.company" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="title">Title</label>
+                  <input type="text" class="form-control" id="title" placeholder="Enter title" name="title" [(ngModel)]="selectedClient.job.title" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="country">Country</label>
+                  <input type="text" class="form-control" id="country" placeholder="Enter country" name="country" [(ngModel)]="selectedClient.address.country" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="city">City</label>
+                  <input type="text" class="form-control" id="city" placeholder="Enter city" name="city" [(ngModel)]="selectedClient.address.city" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="street">Street</label>
+                  <input type="text" class="form-control" id="street" placeholder="Enter street" name="street" [(ngModel)]="selectedClient.address.street" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="zip">Zip Code</label>
+                  <input type="text" class="form-control" id="zip" placeholder="Enter zip code" name="zip" [(ngModel)]="selectedClient.address.zipCode" readonly>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

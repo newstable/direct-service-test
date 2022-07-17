@@ -1,0 +1,61 @@
+.container-fluid {
+  margin-top: 53px;
+}
+
+.search {
+  .client-list {
+    .search-form {
+      display: flex;
+      div {
+        width: 100%;
+        margin: 20px 0;
+      }
+    }
+    .client-info {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid #bde1ff;
+      background: rgba(23, 148, 255, 0.5);
+      transition: ease all .3ms;
+      &:hover  {
+        background: rgb(23, 148, 255);
+      }
+      .avatar {
+        width: 70px;
+        height: 70px;
+        float: left;
+        overflow: hidden;
+        margin-right: 20px;
+        img {
+          width: 70px;
+          height: auto;
+        }
+      }
+      .meta {
+        width: calc(100% - 90px);
+        p.name {
+          margin-bottom: 0;
+        }
+        p.job {
+          font-size: 13px;
+          color: grey;
+        }
+      }
+    }
+  }
+}
+
+.profile {
+  padding: 50px 20px;
+  .personal {
+    .avatar {
+      border: 1px solid black;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
